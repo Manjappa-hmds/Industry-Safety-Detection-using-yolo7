@@ -1,5 +1,10 @@
 import sys,os
 from isd.pipeline.training_pipeline import TrainPipeline
+
+obj=TrainPipeline()
+obj.run_pipeline()
+
+'''
 from isd.exception import isdException
 from isd.utils.main_utils import decodeImage, encodeImageIntoBase64
 from flask import Flask, request, jsonify, render_template,Response
@@ -39,7 +44,7 @@ def predictRoute():
         decodeImage(image, clApp.filename)
 
        
-        os.system("cd yolov7/ && python detect.py --weights my_model.pt  --source ../data/inputImage.jpg")
+        os.system("cd yolov7/ && python detect.py --weights best.pt  --source ../data/inputImage.jpg")
 
         opencodedbase64 = encodeImageIntoBase64("yolov7/runs/detect/exp/inputImage.jpg")
         result = {"image": opencodedbase64.decode('utf-8')}
@@ -61,3 +66,4 @@ if __name__ == "__main__":
     clApp = ClientApp()
     app.run(host="0.0.0.0", port=8080)
     
+'''
